@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductControlle;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/group', [App\Http\Controllers\HomeController::class, 'index'])->name('group');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/catalog',[ProductControlle::class, 'showCatalog'] );
+Route::get('/catalog/{id}',[ProductControlle::class, 'singleProduct'] );
+Route::get('/catalog/sort/{name}/{nap}',[ProductControlle::class, 'showCatalog'] );
+Route::get('/catalog/filtr/{idCat}',[ProductControlle::class, 'fltrCatalog'] );
+
